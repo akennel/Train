@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="style.css" />
+        <title>East Falls Train Schedule</title>
+        
+        <script type="text/javascript">
+        	$(document).ready(function (){
+        		
+        		GetSchedule();
+        		
+        		function GetSchedule(){
+        			var InboundAPI="http://www3.septa.org/hackathon/NextToArrive/East%20Falls/Market%20East/2";
+        			var OutboutAPI="http://www3.septa.org/hackathon/NextToArrive/Market%20East/East%20Falls/2"
+        			
+        			$.getJSON(InboundAPI, function(data){
+        				
+        			});
+        		}
+        		
+        	});
+        	
+        </script>
+        
+    </head>
+    <body>
+        <h1 id="Inbound">To Center City</h1>
+        <ul id="Inboud-List">
+        	<li>
+        		<h3>Leaves 1:30 PM Arrives 1:42 PM</h3>
+        		<p>On Time</p>
+        	</li>
+        	<li>
+        		<h3>Leaves 2:30 PM Arrives 2:42 PM</h3>
+        		<p>5 Minutes Late</p>
+        	</li>
+        </ul>
+        <h1 id="Outbound">To East Falls</h1>
+        <ul id="Outbound-List">
+        	<li>
+        		<h3>Leaves 1:28 PM Arrives 1:38 PM</h3>
+        		<p>On Time</p>
+        	</li>
+        	<li>
+        		<h3>Leaves 2:28 PM Arrives 2:38 PM</h3>
+        		<p>5 Minutes Late</p>
+        	</li>
+        </ul>
+    </body>
+</html>
