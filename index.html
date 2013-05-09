@@ -15,7 +15,7 @@
         		GetSchedule();
         		
         		function GetSchedule(){
-        			var InboundAPI="http://www3.septa.org/hackathon/NextToArrive/East%20Falls/Market%20East/2";
+        			var InboundAPI="http://www3.septa.org/hackathon/NextToArrive/East%20Falls/Market%20East/2&callback=?";
         			var OutboutAPI="http://www3.septa.org/hackathon/NextToArrive/Market%20East/East%20Falls/2"
         			
         			$.getJSON(InboundAPI, function(data){
