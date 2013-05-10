@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -10,20 +10,21 @@
         <title>East Falls Train Schedule</title>
         
         <script type="text/javascript">
-        	$(document).ready(function (){
-        		
-        		GetSchedule();
-        		
-        		function GetSchedule(){
-        			var InboundAPI="http://www3.septa.org/hackathon/NextToArrive/East%20Falls/Market%20East/2&callback=?";
-        			var OutboutAPI="http://www3.septa.org/hackathon/NextToArrive/Market%20East/East%20Falls/2"
-        			
-        			$.getJSON(InboundAPI, function(data){
-        				
-        			});
-        		}
-        		
-        	});
+            $(document).ready(function () {
+
+                GetSchedule();
+
+                function GetSchedule() {
+                    var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/East%20Falls/Market%20East/2&callback=?";
+                    var OutboutAPI = "http://www3.septa.org/hackathon/NextToArrive/Market%20East/East%20Falls/2&callback=?"
+					console.log(InboundAPI);
+
+                    $.getJSON(InboundAPI, function (data) {
+                        console.log(data);
+                    });
+                }
+
+            });
         	
         </script>
         
