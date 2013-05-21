@@ -16,12 +16,26 @@
 
                 function GetSchedule() {
                     var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=East%20Falls&req2=Market%20East&req3=2&callback=?";
-                    var OutboutAPI = "http://www3.septa.org/hackathon/NextToArrive/Market%20East/East%20Falls/2&callback=?"
-					console.log(InboundAPI);
-
+                    var OutboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=Market%20East&req2=East%20Falls&req3=2&callback=?"
                     
                     $.getJSON(InboundAPI, function (data) {
-                        console.log(data);
+                        $("#Inbound-List").empty();
+                        var i = 0;
+                        while(i < data.length)
+                        {
+                        	$("#Inbound-List").append("<li><h3>Leaves at "+ data[i].orig_departure_time + ". Arrives at " + data[i].orig_arrival_time + ".</h3><p>" + data[i].orig_delay + "</p></li>");
+                        	i++;
+                        }
+                    });
+					
+					$.getJSON(OutboundAPI, function (data) {
+                        $("#Outbound-List").empty();
+                        var i = 0;
+                        while(i < data.length)
+                        {
+                        	$("#Outbound-List").append("<li><h3>Leaves at "+ data[i].orig_departure_time + ". Arrives at " + data[i].orig_arrival_time + ".</h3><p>" + data[i].orig_delay + "</p></li>");
+                        	i++;
+                        }
                     });
                 }
 
@@ -32,7 +46,7 @@
     </head>
     <body>
         <h1 id="Inbound">To Center City</h1>
-        <ul id="Inboud-List">
+        <ul id="Inbound-List">
         	<li>
         		<h3>Leaves 1:30 PM Arrives 1:42 PM</h3>
         		<p>On Time</p>
