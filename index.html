@@ -12,7 +12,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
 
-                GetSchedule();
+                //GetSchedule();
 
                 function GetSchedule() {
                     var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=East%20Falls&req2=Market%20East&req3=2&callback=?";
@@ -49,11 +49,11 @@
         <ul id="Inbound-List">
         	<li>
         		<h3>Leaves 1:30 PM Arrives 1:42 PM</h3>
-        		<p>On Time</p>
+        		<p><span class="circleOnTime">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
         	</li>
         	<li>
         		<h3>Leaves 2:30 PM Arrives 2:42 PM</h3>
-        		<p>5 Minutes Late</p>
+        		<p><span class="circleLate">+5</span></p>
         	</li>
         </ul>
         <h1 id="Outbound">To East Falls</h1>
