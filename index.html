@@ -12,7 +12,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
 
-                //GetSchedule();
+                GetSchedule();
 
                 function GetSchedule() {
                     var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=East%20Falls&req2=Market%20East&req3=2&callback=?";
@@ -23,8 +23,13 @@
                         var i = 0;
                         while(i < data.length)
                         {
-                        	$("#Inbound-List").append("<li><h3>Leaves at "+ data[i].orig_departure_time + ". Arrives at " + data[i].orig_arrival_time + ".</h3><p>" + data[i].orig_delay + "</p></li>");
-                        	i++;
+                        	var lateText = "<span class = \"circleOnTime\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+							if (data[i].orig_delay != "On time")
+							{
+								lateText = "<span class = \"circleLate\">" + data[i].orig_delay.replace(" min","") + "</span>";
+							}
+                        	$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
+							i++;
                         }
                     });
 					
@@ -33,8 +38,14 @@
                         var i = 0;
                         while(i < data.length)
                         {
-                        	$("#Outbound-List").append("<li><h3>Leaves at "+ data[i].orig_departure_time + ". Arrives at " + data[i].orig_arrival_time + ".</h3><p>" + data[i].orig_delay + "</p></li>");
-                        	i++;
+                        	var lateText = "<span class = \"circleOnTime\">&nbsp;&nbsp;&nbsp;&nbsp;</span>";
+							if (data[i].orig_delay != "On time")
+							{
+								
+								lateText = "<span class = \"circleLate\">" + data[i].orig_delay.replace(" min","") + "</span>";
+							}
+                        	$("#Outbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
+							i++;
                         }
                     });
                 }
@@ -45,18 +56,16 @@
         
     </head>
     <body>
-        <h1 id="Inbound">To Center City</h1>
+        <h2 id="Inbound">East Falls Inbound</h2>
         <ul id="Inbound-List">
         	<li>
-        		<h3>Leaves 1:30 PM Arrives 1:42 PM</h3>
-        		<p><span class="circleOnTime">&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+        		<span class="circleOnTime">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="StartTime">1:30 PM</span><br><span class="EndTime">Arrives 1:42 PM</span><br><br>
         	</li>
         	<li>
-        		<h3>Leaves 2:30 PM Arrives 2:42 PM</h3>
-        		<p><span class="circleLate">+5</span></p>
+        		<span class="circleLate">5</span><span class="StartTime">2:30 PM<span><br><span class="EndTime">Arrives at 2:42 PM</span><br><br>
         	</li>
         </ul>
-        <h1 id="Outbound">To East Falls</h1>
+        <h2 id="Outbound">Market East Outbound</h2>
         <ul id="Outbound-List">
         	<li>
         		<h3>Leaves 1:28 PM Arrives 1:38 PM</h3>
