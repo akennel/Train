@@ -1,11 +1,11 @@
 body {
 
 }
-#Inbound{
-	
+#Inbound-List{
+	list-style-type: none;
 }
-#Outbound{
-	
+#Outbound-List{
+	list-style-type: none;
 }
 li {
 	width: 236px;
