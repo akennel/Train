@@ -17,7 +17,7 @@ function train_handler(){
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script src="http://turtlemafia.org/wp-content/plugins/GetTrainInfo/GetTrainInfo.js"></script>
 
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="http://turtlemafia.org/wp-content/plugins/GetTrainInfo/style.css" />
         <title>East Falls Train Schedule</title>
         
         <script type="text/javascript">
