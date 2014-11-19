@@ -10,7 +10,9 @@ function GetSchedule() {
         	var lateText = "<span class = \"circleOnTime\">&#x2713;</span>";
 			if (data[i].orig_delay != "On time")
 			{
-				lateText = "<span class = \"circleLate\">" + data[i].orig_delay.replace(" mins","") + "</span>";
+				var delayTime = data[i].orig_delay.replace(" mins", "");
+                delayTime = delayTime.replace(" min", "");
+                lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
 			}
         	$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
 			i++;
@@ -25,8 +27,9 @@ function GetSchedule() {
         	var lateText = "<span class = \"circleOnTime\">&#x2713;</span>";
 			if (data[i].orig_delay != "On time")
 			{
-				
-				lateText = "<span class = \"circleLate\">" + data[i].orig_delay.replace(" mins","") + "</span>";
+				var delayTime = data[i].orig_delay.replace(" mins", "");
+                delayTime = delayTime.replace(" min", "");
+				lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
 			}
         	$("#Outbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
 			i++;
