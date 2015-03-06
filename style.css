@@ -38,6 +38,24 @@ li {
 
     font: bold 24px Arial, sans-serif
     }
+.circleOnTimeSmall
+    {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    behavior: url(PIE.htc);
+
+	float: right;
+    width: 28px;
+    height: 28px;
+    padding: 8px;
+
+    border: 6px solid #669900;
+    color:#669900;
+    text-align: center;
+
+    font: bold 24px Arial, sans-serif
+    }
 .circleLate
     {
     -webkit-border-radius: 999px;
@@ -54,6 +72,24 @@ li {
     color:#CC4040;
     text-align: center;
 
-    font: bold 28px Arial, sans-serif
+    font: bold 24px Arial, sans-serif
+    }
+.circleLateSmall
+    {
+    -webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+    behavior: url(PIE.htc);
+	
+	float: right;
+    width: 28px;
+    height: 28px;
+    padding: 8px;
+
+    border: 6px solid #CC4040;
+    color:#CC4040;
+    text-align: center;
+
+    font: bold 24px Arial, sans-serif
     }
 

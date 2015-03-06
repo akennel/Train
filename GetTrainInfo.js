@@ -12,7 +12,18 @@ function GetSchedule() {
 			{
 				var delayTime = data[i].orig_delay.replace(" mins", "");
                 delayTime = delayTime.replace(" min", "");
-                lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
+                if (delayTime == 999)
+                {  
+                	lateText = "<span class = \"circleLate\">" + "X" + "</span>";
+                } 
+                else if ( delayTime > 9)
+                {
+                	lateText = "<span class = \"circleLateSmall\">" + delayTime + "</span>";
+                }
+                else
+                {
+                	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
+                }
 			}
         	$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
 			i++;
@@ -29,7 +40,19 @@ function GetSchedule() {
 			{
 				var delayTime = data[i].orig_delay.replace(" mins", "");
                 delayTime = delayTime.replace(" min", "");
-				lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
+                if (delayTime == 999)
+                {  
+                	lateText = "<span class = \"circleLate\">" + "X" + "</span>";
+                } 
+                else if ( delayTime > 9)
+                {
+                	lateText = "<span class = \"circleLateSmall\">" + delayTime + "</span>";
+                }
+                else
+                {
+                	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
+                }
+				
 			}
         	$("#Outbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
 			i++;
