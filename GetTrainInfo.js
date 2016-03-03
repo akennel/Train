@@ -67,7 +67,7 @@ function GetStations(lineID){
       var currentStationLine = data[i].Station_Line;
       var currentStationName = data[i].Station_Name;
       if (currentStationLine.toString().indexOf(lineID) >= 0){
-        var currentStation = "<option value=" + data[i].Station_Name + ">" + data[i].Station_Name + "</option>";
+        var currentStation = "<option value=\"" + currentStationName + "\">" + currentStationName + "</option>";
         if (currentStationName != "30th Street Station" && currentStationName != "Suburban Station" && currentStationName != "Market East" && currentStationName != "Temple U"){
           $("#HomeStationList").append(currentStation);
         }
@@ -76,6 +76,12 @@ function GetStations(lineID){
         }
       }            
       i++;
+    }
+    if (DoesCookieExist()){
+      var homeName = getCookie("HomeStationName");
+      var workName = getCookie("WorkStationName");
+      $("#HomeStationList").val(getCookie("HomeStationName"));
+      $("#WorkStationList").val(getCookie("WorkStationName"));
     }
   });
 }
