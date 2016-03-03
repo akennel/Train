@@ -14,6 +14,9 @@ li {
 	float: left;
 	width: 200;	
 	}
+#GearImage{
+  height:50px
+}
 .StartTime{
 	font: bold 34px Arial, sans-serif	
 	}

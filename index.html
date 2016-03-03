@@ -1,27 +1,45 @@
 <!DOCTYPE HTML>
-    <head>
+  <head>
 
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-        <script src="GetTrainInfo.js"></script>
+    <script src="cookies.js"></script>
+    <script src="GetTrainInfo.js"></script>
 
-        <link rel="stylesheet" href="style.css" />
-        <title>East Falls Train Schedule</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>East Falls Train Schedule</title>
         
-        <script type="text/javascript">
-            $(document).ready(function () {
+    <script type="text/javascript">
+      $(document).ready(function () {
 
-                GetSchedule();
+        StartApp();
 
-            });
+      });
         	
-        </script>
+    </script>
         
-    </head>
-    <body>
-        <h2 id="Inbound">East Falls Inbound</h2>
-        <ul id="Inbound-List">
-        </ul>
-        <h2 id="Outbound">Market East Outbound</h2>
-        <ul id="Outbound-List">
-        </ul>
-    </body>
+  </head>
+  <body>
+    <div id = "Time" style="display:none;">
+      <h1 id="Line"></h1>
+      <h2 id="Inbound">East Falls Inbound</h2>
+      <ul id="Inbound-List">
+      </ul>
+      <h2 id="Outbound">Jefferson Outbound</h2>
+      <ul id="Outbound-List">
+      </ul>
+      <img src = "gear.jpg" id = "GearImage" onclick="ShowSettings()"></img>
+    </div>
+    <div id = "Settings" style="display:none;">
+      <div>
+        <select id="LinesList" onchange="GetStationsForLine()">Select your Station...</select>
+      </div>
+      <div>
+        <select id="HomeStationList">Select your Home Stop...</select>
+        <select id="WorkStationList">Select your Work Stop...</select>
+      </div>
+      <div>
+        <img id="SaveImage" onclick="SaveChanges()" src="save.jpg"></img>
+        <img id="CancelImage" onclick="CancelChanges()" src="cancel.jpg"></img>
+      </div>
+    </div>
+  </body>
