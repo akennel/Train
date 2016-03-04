@@ -98,6 +98,14 @@ function GetSchedule() {
     var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("HomeStationName") + "&req2=" + getCookie("WorkStationName") + "&req3=2&callback=?";
     var OutboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("WorkStationName")  + "&req2=" + getCookie("HomeStationName") + "&req3=2&callback=?"
     
+    var startRow = "<div class=\"pure-g\">";
+    var endDiv = "</div>";
+    var startLittleColumn = "<div  class=\"pure-u-1-3\">";
+    var startBigColumn = "<div  class=\"pure-u-2-3\">";
+    var startStartSpan = "<span class=\"StartTime\">";
+    var startEndSpan = "<span class=\"EndTime\">";
+    var endSpan = "</span>";
+    
     $.getJSON(InboundAPI, function (data) {
         $("#Inbound-List").empty();
         var i = 0;
@@ -121,7 +129,8 @@ function GetSchedule() {
                 	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
                 }
 			}
-        	$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
+        	$("#Inbound-List").append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
+          //$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
 			i++;
         }
     });
@@ -150,7 +159,7 @@ function GetSchedule() {
                 }
 				
 			}
-        	$("#Outbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
+      $("#Outbound-List").append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
 			i++;
         }
     });

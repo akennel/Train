@@ -1,23 +1,23 @@
 <!DOCTYPE HTML>
   <head>
-
+    
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="scripts/cookies.js"></script>
     <script src="scripts/GetTrainInfo.js"></script>
 
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
     <link rel="stylesheet" href="styles/style.css" />
     <title>SEPTA Train Schedule</title>
         
     <script type="text/javascript">
       $(document).ready(function () {
-
         StartApp();
-
-      });
-        	
+      });        	
     </script>
-        
-  </head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    </head>
   <body>
     <div id = "Time" style="display:none;">
       <h2 id="Inbound">East Falls Inbound</h2>
@@ -32,19 +32,15 @@
       </div>
     </div>
     <div id = "Settings" style="display:none;">
-      <div>
-        <h2>Select your Line...</h2>
-        <select id="LinesList" onchange="GetStationsForLine()"></select>
-      </div>
-      <div>
-      <h2>Select your Home Station...</h2>
-        <select id="HomeStationList"></select>
-        <h2>Select your Work Station...</h2>
-        <select id="WorkStationList"></select>
-      </div>
-      <div>
-        <img id="SaveImage" onclick="SaveChanges()" src="img/save.jpg"></img>
-        <img id="CancelImage" onclick="CancelChanges()" src="img/cancel.jpg"></img>
+      <div><h2>Select your Line...</h2></div>
+      <div class="pure-g"><select id="LinesList" onchange="GetStationsForLine()"></select></div>
+      <div><h2>Home Station...</h2></div>
+      <div class="pure-g"><select id="HomeStationList"></select></div>
+      <div><h2>Work Station...</h2></div>
+      <div class="pure-g"><select id="WorkStationList"></select></div>
+      <div class="pure-g" id="ButtonSection">
+        <div class="pure-u-1-12"><button class="link" id="SaveImage" onclick="SaveChanges()" src="img/save.jpg">OK</button></div>
+        <div class="pure-u-1-12"><button class="link" id="CancelImage" onclick="CancelChanges()" src="img/cancel.jpg">Cancel</button></div>
       </div>
     </div>
   </body>

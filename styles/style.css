@@ -22,6 +22,10 @@ li {
   padding-right: 6px;
   float: right;
 }
+#ButtonSection{
+  padding-top: 20px;
+}
+button.link { background:none;border:none; }
 .StartTime{
 	font: bold 34px Arial, sans-serif	
 	}
@@ -100,4 +104,3 @@ li {
 
     font: bold 24px Arial, sans-serif
     }
-
