@@ -25,7 +25,7 @@ function CancelChanges(){
 }
 
 function GetLines(){
-  var linesAPI = "http://turtlemafia.org/wp-content/plugins/GetTrainInfo/lines.json";
+  var linesAPI = "data/lines.json";
   $.getJSON(linesAPI, function (data){
     $("#LinesList").empty();
     var i = 0;
@@ -58,7 +58,7 @@ function DoesCookieExist(){
 }
 
 function GetStations(lineID){
-  var stationAPI = "http://turtlemafia.org/wp-content/plugins/GetTrainInfo/stations.json";
+  var stationAPI = "data/stations.json";
   $.getJSON(stationAPI, function (data){
     $("#HomeStationList").empty();
     $("#WorkStationList").empty();

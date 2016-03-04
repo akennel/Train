@@ -2,11 +2,11 @@
   <head>
 
 		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="cookies.js"></script>
-    <script src="GetTrainInfo.js"></script>
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/GetTrainInfo.js"></script>
 
-    <link rel="stylesheet" href="style.css" />
-    <title>East Falls Train Schedule</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>SEPTA Train Schedule</title>
         
     <script type="text/javascript">
       $(document).ready(function () {
@@ -28,7 +28,7 @@
       </ul>
       <div>
         <h3 id="Line"></h3>
-        <img src = "gear.jpg" id = "GearImage" onclick="ShowSettings()"></img>
+        <img src = "img/gear.jpg" id = "GearImage" onclick="ShowSettings()"></img>
       </div>
     </div>
     <div id = "Settings" style="display:none;">
@@ -43,8 +43,8 @@
         <select id="WorkStationList"></select>
       </div>
       <div>
-        <img id="SaveImage" onclick="SaveChanges()" src="save.jpg"></img>
-        <img id="CancelImage" onclick="CancelChanges()" src="cancel.jpg"></img>
+        <img id="SaveImage" onclick="SaveChanges()" src="img/save.jpg"></img>
+        <img id="CancelImage" onclick="CancelChanges()" src="img/cancel.jpg"></img>
       </div>
     </div>
   </body>
