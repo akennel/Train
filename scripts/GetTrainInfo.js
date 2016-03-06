@@ -13,7 +13,7 @@ function SaveChanges(){
   setCookie("WorkStationName", $("#WorkStationList :selected").text());
   setCookie("LineName", $("#LinesList :selected").text());
   setCookie("LineID", $("#LinesList :selected").val());
-  GetSchedule();
+  GetSchedules();
   $("#Settings").fadeOut("fast");
   $("#Time").fadeIn("fast");  
 }
@@ -91,14 +91,9 @@ function GetStationsForLine(){
   GetStations(selectedLine);
 }
 
-function GetSchedule() {
-    $("#Line").text(getCookie("LineName"));
-    $("#Inbound").text(getCookie("HomeStationName") + " Inbound");
-    $("#Outbound").text(getCookie("WorkStationName") + " Outbound");
-    var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("HomeStationName") + "&req2=" + getCookie("WorkStationName") + "&req3=2&callback=?";
-    var OutboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("WorkStationName")  + "&req2=" + getCookie("HomeStationName") + "&req3=2&callback=?"
+function GetScheduleForRoute(API, List){
     
-    var startRow = "<div class=\"pure-g\">";
+	var startRow = "<div class=\"pure-g\">";
     var endDiv = "</div>";
     var startLittleColumn = "<div  class=\"pure-u-1-3\">";
     var startBigColumn = "<div  class=\"pure-u-2-3\">";
@@ -106,8 +101,8 @@ function GetSchedule() {
     var startEndSpan = "<span class=\"EndTime\">";
     var endSpan = "</span>";
     
-    $.getJSON(InboundAPI, function (data) {
-        $("#Inbound-List").empty();
+    $.getJSON(API, function (data) {
+        $(List).empty();
         var i = 0;
         while(i < data.length)
         {
@@ -129,45 +124,28 @@ function GetSchedule() {
                 	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
                 }
 			}
-        	$("#Inbound-List").append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
-          //$("#Inbound-List").append("<li>" + lateText + "<span class=\"StartTime\">" + data[i].orig_departure_time + "<span><br><span class=\"EndTime\">Arrives at " + data[i].orig_arrival_time + "</span><br><br></li>");
-			i++;
-        }
-    });
-	
-	$.getJSON(OutboundAPI, function (data) {
-        $("#Outbound-List").empty();
-        var i = 0;
-        while(i < data.length)
-        {
-        	var lateText = "<span class = \"circleOnTime\">&#x2713;</span>";
-			if (data[i].orig_delay != "On time")
-			{
-				var delayTime = data[i].orig_delay.replace(" mins", "");
-                delayTime = delayTime.replace(" min", "");
-                if (delayTime == 999)
-                {  
-                	lateText = "<span class = \"circleLate\">" + "X" + "</span>";
-                } 
-                else if ( delayTime > 9)
-                {
-                	lateText = "<span class = \"circleLateSmall\">" + delayTime + "</span>";
-                }
-                else
-                {
-                	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
-                }
-				
-			}
-      $("#Outbound-List").append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
+        	$(List).append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
 			i++;
         }
     });
 }
 
+function GetSchedules() {
+    $("#Line").text(getCookie("LineName"));
+    $("#Inbound").text(getCookie("HomeStationName") + " Inbound");
+    $("#Outbound").text(getCookie("WorkStationName") + " Outbound");
+    var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("HomeStationName") + "&req2=" + getCookie("WorkStationName") + "&req3=2&callback=?";
+    var OutboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("WorkStationName")  + "&req2=" + getCookie("HomeStationName") + "&req3=2&callback=?"
+    var InboundList = "#Inbound-List";
+    var OutboundList = "#Outbound-List";
+    
+    GetScheduleForRoute(InboundAPI, InboundList);
+    GetScheduleForRoute(OutboundAPI, OutboundList);
+}
+
 function StartApp(){
   if (DoesCookieExist()){
-    GetSchedule();
+    GetSchedules();
     ShowTimes();
     GetLines();
   }
