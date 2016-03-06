@@ -3,9 +3,11 @@ body {
 }
 #Inbound-List{
 	list-style-type: none;
+	padding-left: 10px;
 }
 #Outbound-List{
 	list-style-type: none;
+	padding-left: 10px;
 }
 li {
 	/*width: 236px;*/
@@ -20,7 +22,7 @@ li {
 	}
 #GearImage{
   height:50px;
-  padding-right: 6px;
+  padding-right: 4px;
   float: right;
 }
 #ButtonSection{

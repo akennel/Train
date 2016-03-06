@@ -94,13 +94,13 @@ function GetStationsForLine(){
 function GetScheduleForRoute(API, List){
     
 	var startRow = "<li><div class=\"pure-g\">";
-    var endDiv = "</div></li>";
+    var endRow = "</div></li>";
     var bigColumn = "<div  class=\"pure-u-2-3\">DATA</div>";
     var littleColumn = "<div  class=\"pure-u-1-3\">DATA</div>";
     var timeStartSpan = "<div class=\"StartTime\">DATA</div>";
     var timeEndSpan = "<div class=\"EndTime\">DATA</div>";
-    var startLittleColumn = "<div  class=\"pure-u-1-3\">";
-    var startBigColumn = "<div  class=\"pure-u-2-3\">";
+    //var startLittleColumn = "<div  class=\"pure-u-1-3\">";
+    //var startBigColumn = "<div  class=\"pure-u-2-3\">";
     //var startStartSpan = "<span class=\"StartTime\">";
     //var startEndSpan = "<span class=\"EndTime\">";
     //var endSpan = "</span>";
@@ -133,7 +133,7 @@ function GetScheduleForRoute(API, List){
         	var timeColumn = bigColumn.replace("DATA", startTime + endTime);
         	var delayColumn = littleColumn.replace("DATA", lateText);
         	
-        	$(List).append(startRow + timeColumn + delayColumn + endDiv);
+        	$(List).append(startRow + timeColumn + delayColumn + endRow);
         	//$(List).append(startRow + startBigColumn + startTime + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + endTime + endDiv + endDiv);
 			i++;
         }
