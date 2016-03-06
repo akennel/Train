@@ -93,13 +93,17 @@ function GetStationsForLine(){
 
 function GetScheduleForRoute(API, List){
     
-	var startRow = "<div class=\"pure-g\">";
-    var endDiv = "</div>";
+	var startRow = "<li><div class=\"pure-g\">";
+    var endDiv = "</div></li>";
+    var bigColumn = "<div  class=\"pure-u-2-3\">DATA</div>";
+    var littleColumn = "<div  class=\"pure-u-1-3\">DATA</div>";
+    var timeStartSpan = "<div class=\"StartTime\">DATA</div>";
+    var timeEndSpan = "<div class=\"EndTime\">DATA</div>";
     var startLittleColumn = "<div  class=\"pure-u-1-3\">";
     var startBigColumn = "<div  class=\"pure-u-2-3\">";
-    var startStartSpan = "<span class=\"StartTime\">";
-    var startEndSpan = "<span class=\"EndTime\">";
-    var endSpan = "</span>";
+    //var startStartSpan = "<span class=\"StartTime\">";
+    //var startEndSpan = "<span class=\"EndTime\">";
+    //var endSpan = "</span>";
     
     $.getJSON(API, function (data) {
         $(List).empty();
@@ -124,7 +128,13 @@ function GetScheduleForRoute(API, List){
                 	lateText = "<span class = \"circleLate\">" + delayTime + "</span>";
                 }
 			}
-        	$(List).append(startRow + startBigColumn + startStartSpan + data[i].orig_departure_time + endSpan + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + startEndSpan + "Arrives at" + data[i].orig_arrival_time + endSpan + endDiv + endDiv);
+        	var startTime = timeStartSpan.replace("DATA", data[i].orig_departure_time);
+        	var endTime = timeEndSpan.replace("DATA", "Arrives at " + data[i].orig_arrival_time);
+        	var timeColumn = bigColumn.replace("DATA", startTime + endTime);
+        	var delayColumn = littleColumn.replace("DATA", lateText);
+        	
+        	$(List).append(startRow + timeColumn + delayColumn + endDiv);
+        	//$(List).append(startRow + startBigColumn + startTime + endDiv + startLittleColumn + lateText + endDiv + endDiv + startRow + startBigColumn + endTime + endDiv + endDiv);
 			i++;
         }
     });

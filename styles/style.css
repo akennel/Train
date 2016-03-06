@@ -8,7 +8,8 @@ body {
 	list-style-type: none;
 }
 li {
-	width: 236px;
+	/*width: 236px;*/
+	padding-bottom: 10px;
 }
 #Line{
   float: left;
