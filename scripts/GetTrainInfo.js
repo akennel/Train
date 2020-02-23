@@ -138,8 +138,8 @@ function GetSchedules() {
     $("#Line").text(getCookie("LineName"));
     $("#Inbound").text(getCookie("HomeStationName") + " Inbound");
     $("#Outbound").text(getCookie("WorkStationName") + " Outbound");
-    var InboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("HomeStationName") + "&req2=" + getCookie("WorkStationName") + "&req3=2&callback=?";
-    var OutboundAPI = "http://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("WorkStationName")  + "&req2=" + getCookie("HomeStationName") + "&req3=2&callback=?"
+    var InboundAPI = "https://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("HomeStationName") + "&req2=" + getCookie("WorkStationName") + "&req3=2&callback=?";
+    var OutboundAPI = "https://www3.septa.org/hackathon/NextToArrive/?req1=" + getCookie("WorkStationName")  + "&req2=" + getCookie("HomeStationName") + "&req3=2&callback=?"
     var InboundList = "#Inbound-List";
     var OutboundList = "#Outbound-List";
     
